@@ -1,0 +1,8 @@
+<p>task-list works!</p>
+<ul class="tasks">
+    <li *ngFor="let task of taskList">{{ task.name }}</li>
+</ul>
+<p *ngIf="taskList.length === 0">No tasks open!</p>
+<input type="text" [(ngModel)]="newTask">
+<button type="button" (click)="addItem(newTask)">Add new task</button>
+<button type="button" (click)="removeLastItem()">Remove last item from the list</button>
