@@ -24,7 +24,7 @@ export class TaskListComponent implements OnInit {
     }
   ]
 
-
+  newTask : string = ''
 
 removeLastItem = () => {
   console.log('remove button works')
@@ -37,7 +37,10 @@ constructor() {}
 
 addItem = () => {
   console.log('add button works')
-  this.taskList.push({id: 4, name: 'hardcoded dummy task'})
+  this.taskList.push({id: this.taskList.length + 1, name: this.newTask})
+
+  this.newTask = ''
+
 }
 
 
