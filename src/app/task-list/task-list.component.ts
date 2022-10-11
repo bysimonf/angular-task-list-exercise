@@ -26,25 +26,33 @@ export class TaskListComponent implements OnInit {
 
   newTask : string = ''
 
-removeLastItem = () => {
-  console.log('remove button works')
-  this.taskList.pop()
-}
+  removeLastItem = () => {
+    console.log('remove button works')
+    this.taskList.pop()
+  }
 
 
-constructor() {}
+  constructor() {}
 
 
-addItem = () => {
-  console.log('add button works')
-  this.taskList.push({id: this.taskList.length + 1, name: this.newTask})
+  addItem = () => {
+    console.log('add button works')
+    this.taskList.push({id: this.taskList.length + 1, name: this.newTask})
 
-  this.newTask = ''
+    this.newTask = ''
 
-}
+  }
+
+  selectedTask ?: List // <- no clue about what I'm doing here
+
+  strikeThroughItem = (task : List) => { // <- no clue about the type here lol
+    
+    this.selectedTask = task
+  
+  }
 
 
-ngOnInit(): void {}
+  ngOnInit(): void {}
 
 }
 
