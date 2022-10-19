@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 
-import { List } from '../list';
+import { Task } from '../task';
 
 @Component({
   selector: 'app-task-list',
@@ -9,18 +9,21 @@ import { List } from '../list';
 })
 export class TaskListComponent implements OnInit {
 
-  taskList : List[] = [ 
+  taskList : Task[] = [ 
     {
       id: 1,
-      name: 'finish Angular task'
+      name: 'finish Angular task',
+      isDone: false
     },
     {
       id: 2,
-      name: 'build a button'
+      name: 'build a button',
+      isDone: false
     },
     {
       id: 3,
-      name: 'testing auto update'
+      name: 'testing auto update',
+      isDone: false
     }
   ]
 
@@ -37,17 +40,18 @@ export class TaskListComponent implements OnInit {
 
   addItem = () => {
     console.log('add button works')
-    this.taskList.push({id: this.taskList.length + 1, name: this.newTask})
+    this.taskList.push({id: this.taskList.length + 1, name: this.newTask, isDone: false})
 
     this.newTask = ''
 
   }
 
-  selectedTask ?: List // <- no clue about what I'm doing here
+  //selectedTask ?: Task // <- no clue about what I'm doing here - optional bc no value at the beginning?
+  
 
-  strikeThroughItem = (task : List) => { // <- no clue about the type here lol
+  strikeThroughItem = (task : Task) => { // <- no clue about the type here lol - any would be ok tho
     
-    this.selectedTask = task
+    task.isDone = !task.isDone 
   
   }
 

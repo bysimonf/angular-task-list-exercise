@@ -1,6 +1,6 @@
 <p>task-list works!</p>
 <ul class="tasks">
-    <li *ngFor="let task of taskList" [class.strikethrough]="task === selectedTask" (click)="strikeThroughItem(task)">{{ task.name }}</li>
+    <li *ngFor="let task of taskList" [class.strikethrough]="task.isDone === true" (click)="strikeThroughItem(task)">{{ task.name }}</li>
 </ul>
 <p *ngIf="taskList.length === 0">No tasks open!</p>
 <input [(ngModel)]="newTask" type="text">
